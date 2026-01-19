@@ -98,6 +98,8 @@ button {
 
 .section {
   padding: var(--spacing-xl) 0;
+  position: relative;
+  z-index: 1;
 }
 
 .section-label {
@@ -116,7 +118,7 @@ button {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10000;
   height: var(--navbar-height);
   transition: var(--transition-base);
 }
@@ -137,9 +139,21 @@ button {
   justify-content: space-between;
 }
 
+.logo {
+  background-color: white;
+  border-radius: 50%;
+  width: 66px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+}
+
 .logo img {
   height: 50px;
-  width: auto;
+  width: 50px;
+  object-fit: contain;
   transition: var(--transition-base);
 }
 
@@ -156,7 +170,7 @@ button {
 .nav-link {
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-accent);
+  color: white;
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: 6px;
   transition: var(--transition-fast);
@@ -206,15 +220,20 @@ button {
   flex-direction: column;
   gap: 5px;
   padding: var(--spacing-xs);
-  z-index: 1001;
+  z-index: 10001;
+  position: relative;
 }
 
 .mobile-menu-toggle span {
   display: block;
   width: 25px;
   height: 2px;
-  background-color: var(--color-text);
+  background-color: white;
   transition: var(--transition-base);
+}
+
+.navbar.scrolled .mobile-menu-toggle span {
+  background-color: var(--color-text);
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
@@ -238,6 +257,7 @@ button {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 1;
 }
 
 .hero-background {
@@ -406,6 +426,8 @@ button {
   transition: var(--transition-base);
   opacity: 0;
   transform: translateY(20px);
+  position: relative;
+  overflow: hidden;
 }
 
 .guild-card.fade-in {
@@ -476,8 +498,26 @@ button {
 
 .guild-description {
   font-size: 0.875rem;
-  color: var(--color-text-light);
+  color: white;
   line-height: 1.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(45, 49, 66, 0.95);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.guild-card:hover .guild-description {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ===== Gameplay Section ===== */
@@ -801,13 +841,28 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: white;
+    height: 100vh;
+    background-color: #FFFFFF;
     flex-direction: column;
     padding: var(--spacing-lg);
     gap: var(--spacing-md);
     transform: translateX(100%);
     transition: transform var(--transition-base);
     box-shadow: var(--shadow-lg);
+    z-index: 9999;
+    overflow-y: auto;
+    opacity: 1;
+  }
+
+  .nav-menu::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFFFFF;
+    z-index: -1;
   }
 
   .nav-menu.active {
@@ -819,6 +874,7 @@ button {
     padding: var(--spacing-sm);
     width: 100%;
     text-align: center;
+    color: var(--color-text) !important;
   }
 
   .lang-toggle {
