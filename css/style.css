@@ -1,24 +1,24 @@
 /**
- * Iconik Games - Modern Minimalist Website Styles
- * Designed to attract artists with clean, professional design
+ * Iconik Games - Fantasy-Industrial Website Styles
+ * "Intrigue" theme for Monarchs of Sylleria
  */
 
 /* ===== CSS Variables ===== */
 :root {
-  /* Colors - Modern minimalist palette */
+  /* Colors - Fantasy-Industrial "Intrigue" palette */
   --color-primary: #FF6B35;
   --color-primary-dark: #E85A2A;
   --color-secondary: #2D3142;
-  --color-accent: #FFA447;
-  --color-text: #2D3142;
-  --color-text-light: #6B7280;
-  --color-bg: #FFFFFF;
-  --color-bg-alt: #F9FAFB;
-  --color-bg-dark: #1F2937;
+  --color-accent: #D4AF37;
+  --color-text: #E0E0E0;
+  --color-text-light: #A0A0A0;
+  --color-bg: #1A1A1B;
+  --color-bg-alt: #252526;
+  --color-bg-dark: #0F0F10;
 
   /* Typography */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Cinzel', Georgia, serif;
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -73,6 +73,17 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  border-radius: 8px;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3 {
+  font-family: var(--font-display);
+}
+
+p, li {
+  font-family: var(--font-primary);
+  line-height: 1.6;
 }
 
 a {
@@ -107,7 +118,7 @@ button {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-primary);
+  color: var(--color-accent);
   margin-bottom: var(--spacing-md);
   text-align: center;
 }
@@ -124,9 +135,9 @@ button {
 }
 
 .navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(26, 26, 27, 0.95);
   backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 0 rgba(212, 175, 55, 0.2);
 }
 
 .nav-container {
@@ -140,7 +151,7 @@ button {
 }
 
 .logo {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 50%;
   width: 66px;
   height: 66px;
@@ -148,6 +159,7 @@ button {
   align-items: center;
   justify-content: center;
   transition: var(--transition-base);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35), 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .logo img {
@@ -181,15 +193,16 @@ button {
 }
 
 .nav-link:hover {
-  color: var(--color-primary);
-  background-color: rgba(255, 107, 53, 0.1);
+  color: var(--color-accent);
+  background-color: rgba(212, 175, 55, 0.1);
 }
 
 /* Language Toggle */
 .lang-toggle {
   display: flex;
   gap: 0;
-  background-color: var(--color-bg-alt);
+  background-color: rgba(37, 37, 38, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 8px;
   padding: 4px;
   margin-left: var(--spacing-sm);
@@ -210,8 +223,8 @@ button {
 }
 
 .lang-option.active {
-  background-color: var(--color-primary);
-  color: white;
+  background-color: var(--color-accent);
+  color: #1A1A1B;
 }
 
 /* Mobile Menu Toggle */
@@ -292,7 +305,8 @@ button {
   position: relative;
   text-align: center;
   color: white;
-  max-width: 900px;
+  max-width: 800px;
+  margin: 0 auto;
   padding: var(--spacing-md);
   animation: fadeInUp 1s ease-out;
 }
@@ -302,7 +316,7 @@ button {
   font-size: clamp(3rem, 8vw, 5rem);
   font-weight: 900;
   margin-bottom: var(--spacing-md);
-  letter-spacing: -0.02em;
+  letter-spacing: 2px;
 }
 
 .hero-subtitle {
@@ -310,6 +324,7 @@ button {
   font-weight: 600;
   margin-bottom: var(--spacing-md);
   color: var(--color-accent);
+  font-family: var(--font-primary);
 }
 
 .hero-description {
@@ -357,13 +372,16 @@ button {
 .project-header {
   text-align: center;
   margin-bottom: var(--spacing-lg);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-accent);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -375,7 +393,8 @@ button {
 }
 
 .feature-card {
-  background-color: white;
+  background-color: var(--color-bg-alt);
+  border: 1px solid rgba(212, 175, 55, 0.25);
   border-radius: 16px;
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-md);
@@ -391,12 +410,14 @@ button {
 .feature-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-xl);
+  border-color: rgba(212, 175, 55, 0.6);
 }
 
 .feature-content h4 {
-  font-size: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-accent);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -407,7 +428,7 @@ button {
 
 /* ===== Guilds Section ===== */
 .guilds-section {
-  background-color: var(--color-bg-alt);
+  background-color: var(--color-bg);
 }
 
 .guilds-grid {
@@ -418,7 +439,8 @@ button {
 }
 
 .guild-card {
-  background-color: white;
+  background-color: #252526;
+  border: 1px solid var(--color-accent);
   border-radius: 12px;
   padding: var(--spacing-md);
   text-align: center;
@@ -436,7 +458,8 @@ button {
 
 .guild-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.8);
 }
 
 .guild-icon {
@@ -445,10 +468,11 @@ button {
   margin: 0 auto var(--spacing-md);
   border-radius: 50%;
   overflow: hidden;
-  background-color: var(--color-bg-alt);
+  background-color: #1A1A1B;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .guild-icon img {
@@ -490,9 +514,10 @@ button {
 }
 
 .guild-name {
-  font-size: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-accent);
   margin-bottom: var(--spacing-xs);
 }
 
@@ -522,7 +547,7 @@ button {
 
 /* ===== Gameplay Section ===== */
 .gameplay-section {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-alt);
 }
 
 .gameplay-grid {
@@ -557,7 +582,8 @@ button {
   width: 100%;
   height: 400px;
   border-radius: 16px;
-  background-color: var(--color-bg-alt);
+  background-color: #1A1A1B;
+  border: 1px solid rgba(212, 175, 55, 0.2);
   box-shadow: var(--shadow-lg);
   display: flex;
   align-items: center;
@@ -670,10 +696,14 @@ button {
   transform: scale(1.1);
 }
 
+.gameplay-content {
+  max-width: 800px;
+}
+
 .gameplay-content h3 {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-text);
   margin-bottom: var(--spacing-md);
 }
 
@@ -685,7 +715,7 @@ button {
 
 /* ===== Team Section ===== */
 .team-section {
-  background-color: var(--color-bg-alt);
+  background-color: var(--color-bg);
 }
 
 .team-grid {
@@ -712,6 +742,7 @@ button {
   border-radius: 50%;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  border: 2px solid rgba(212, 175, 55, 0.4);
   transition: var(--transition-base);
 }
 
@@ -740,22 +771,24 @@ button {
 }
 
 .member-name {
-  font-size: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-text);
   margin-bottom: var(--spacing-xs);
 }
 
 .member-role {
   font-size: 1rem;
-  color: var(--color-text-light);
+  color: var(--color-accent);
 }
 
 /* ===== Footer ===== */
 .footer {
   background-color: var(--color-bg-dark);
-  color: white;
+  color: var(--color-text);
   padding: var(--spacing-md) 0 var(--spacing-sm) 0;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .footer-content {
@@ -776,13 +809,23 @@ button {
 }
 
 .discord-link {
-  color: #5865F2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #5865F2;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 1rem;
   transition: var(--transition-base);
 }
 
 .discord-link:hover {
-  transform: scale(1.1);
-  color: #7289DA;
+  background-color: #6e7bf5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
 }
 
 .footer-note {
@@ -795,9 +838,9 @@ button {
 
 .footer-copyright {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(224, 224, 224, 0.4);
   padding-top: var(--spacing-sm);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
   margin-top: var(--spacing-md);
 }
 
@@ -842,7 +885,7 @@ button {
     right: 0;
     bottom: 0;
     height: 100vh;
-    background-color: #FFFFFF;
+    background-color: #1A1A1B;
     flex-direction: column;
     padding: var(--spacing-lg);
     gap: var(--spacing-md);
@@ -852,6 +895,7 @@ button {
     z-index: 9999;
     overflow-y: auto;
     opacity: 1;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
   }
 
   .nav-menu::before {
@@ -861,7 +905,7 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #FFFFFF;
+    background-color: #1A1A1B;
     z-index: -1;
   }
 
@@ -875,6 +919,11 @@ button {
     width: 100%;
     text-align: center;
     color: var(--color-text) !important;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent) !important;
+    background-color: rgba(212, 175, 55, 0.1);
   }
 
   .lang-toggle {
